@@ -1,0 +1,13 @@
+1. The user uploads an image to a specified Amazon S3 bucket.
+
+2. Once the image is uploaded, an S3 event triggers an AWS lambda function.
+
+3. The lambda function sends the image data to Amazon Rekognition using the detect_text Api to extract text from the image.
+
+4. Lambda reads the image directly from S3 using the bucket name.
+
+5. Rekognition performs OCR(Optical Character Recognition) on the image and returns the detected text.
+
+6. Lambda prepares the extracted plate number and image metadata for storage.
+
+7. The recognized number plate along with the image name or timestamp is stored in a DynamoDB table for future lookup, logging or enforcement actions.
